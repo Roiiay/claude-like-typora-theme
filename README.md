@@ -56,6 +56,14 @@
 
 调整后，大屏下写作区能更充分地利用空间，浅色和暗色主题的正文布局保持一致。
 
+**Before**
+
+<img src="images/content-before.png" alt="content-before" style="zoom:50%;" />
+
+#### **After**
+
+<img src="images/content-after.png" alt="content-after" style="zoom:50%;" />
+
 ### 3. 侧边栏 FILES / Outline 切换按钮样式
 
 **问题**：Typora 在 Windows 和 macOS 上使用不同的侧边栏 DOM 结构。原先只针对 Windows 的 `#info-panel-tab-file` / `#info-panel-tab-outline` 写样式，在 macOS 上不会命中真正的按钮。
@@ -90,6 +98,14 @@ Typora 的两套结构大致如下：
 ```
 
 这样在正文区写作时，侧边栏顶部按钮保持安静；鼠标移入侧边栏后，视图切换按钮和搜索按钮才出现。图标字体也不会再被 UI 字体覆盖而导致按钮不可见。
+
+**Before**
+
+<img src="images/sidebar-before.png" alt="sidebar-before" style="zoom: 67%;" />
+
+**After**
+
+<img src="images/sidebar-after.png" alt="sidebar-after" style="zoom:67%;" />
 
 ### 4. 行内代码改为圆角矩形
 
