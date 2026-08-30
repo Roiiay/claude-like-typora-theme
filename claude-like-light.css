@@ -268,7 +268,7 @@ table {
 strong,
 b {
     font-family: var(--font-body);
-    font-weight: 700;
+    font-weight: 800;
     color: var(--heading-color);
     font-synthesis: weight;
     letter-spacing: 0;
@@ -417,7 +417,7 @@ table tbody tr:hover td {
 table td strong,
 table th strong {
     font-family: var(--font-body);
-    font-weight: 700;
+    font-weight: 800;
     color: var(--heading-color);
 }
 
