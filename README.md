@@ -2,7 +2,7 @@
 
 这是基于 [Muyiiiii/Typora_Claude-Like_Theme](https://github.com/Muyiiiii/Typora_Claude-Like_Theme) 修改的个人版 Typora 主题。
 
-原仓库提供了模拟 Claude / Anthropic 官网视觉风格的 Typora 主题：暖棕米色调、衬线正文、赤陶橘强调色、圆角矩形行内代码、圆角引用块等。本仓库在原主题基础上做了导出样式、写作区布局、行内代码样式和侧边栏交互四方面调整，并把主要修改同步到了浅色版和暗色版。为了让文件名更明确，原仓库中的浅色主题 `claude-like.css` 在这里重命名为 `claude-like-light.css`。
+原仓库提供了模拟 Claude / Anthropic 官网视觉风格的 Typora 主题：暖棕米色调、衬线正文、赤陶橘强调色、圆角矩形行内代码、圆角引用块等。本仓库在原主题基础上做了导出样式、写作区布局、行内代码样式、侧边栏交互和中文加粗效果五方面调整，并把主要修改同步到了浅色版和暗色版。为了让文件名更明确，原仓库中的浅色主题 `claude-like.css` 在这里重命名为 `claude-like-light.css`。
 
 ## 文件
 
@@ -118,6 +118,25 @@ Typora 的两套结构大致如下：
 - 代码块内的 `code` / `tt` 仍由 `.md-fences` 覆盖，不受行内代码圆角影响。
 
 调整后，`var`、`age` 这类短行内代码会显示为更克制的圆角矩形。
+
+### 5. 增强中文加粗效果
+
+**问题**：正文中文字体由字体栈中的宋体（`Songti SC`）渲染，其 Bold(700) 字重笔画对比很弱，与常规字重拉不开差距，导致在多文字的文档里很难一眼识别加粗内容；而英文走 Georgia 等衬线字体，Bold 对比强烈，不受影响。
+
+**修改**：将浅色版和暗色版中 `strong, b` 及 `table td strong, table th strong` 的 `font-weight` 从 `700` 提升到 `800`。
+
+```css
+strong,
+b {
+    font-family: var(--font-body);
+    font-weight: 800;
+    color: var(--heading-color);
+    font-synthesis: weight;
+    letter-spacing: 0;
+}
+```
+
+**原理**：CSS 字体匹配规则下，请求 `800` 字重时，宋体会命中更重的真实字重 Black(900)，加粗明显可见；英文仍命中 Georgia 原生 Bold(700)，仅通过 `font-synthesis: weight` 略微加粗，不会显得突兀。
 
 ## 安装
 
